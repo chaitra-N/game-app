@@ -1,7 +1,7 @@
 import React from "react";
 import { FaTimes } from "react-icons/fa";
 import result from "../src/assets/Winneremoji.jpg";
-const Modal = ({ winner, openModal, onClose, restartGame }) => {
+const Modal = ({ winner, openModal, onClose }) => {
   if (!openModal) return null;
   return (
     <div className='overlay'>
@@ -16,10 +16,10 @@ const Modal = ({ winner, openModal, onClose, restartGame }) => {
           </div>
           <div className='btnContainer'>
             <button
-              className='btnPrimary'
               onClick={() => {
-                restartGame();
+                onClose();
               }}
+              className='btnPrimary'
             >
               Restart game
             </button>
