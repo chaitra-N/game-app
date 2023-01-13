@@ -2,11 +2,13 @@ import React from "react";
 import Square from "./Square";
 import { useState, useEffect } from "react";
 import { WinningPatterns } from "./WinningPatterns";
+import Modal from "./Modal";
 
 const Game = () => {
   const [board, setBoard] = useState(["", "", "", "", "", "", "", "", ""]);
   const [player, setPlayer] = useState("O");
   const [winner, setWinner] = useState({ winner: "none", state: "none" });
+  const [openModal, setModel] = useState(false);
 
   useEffect(() => {
     checkWinner();
@@ -20,7 +22,7 @@ const Game = () => {
 
   useEffect(() => {
     if (winner.state !== "none") {
-      alert(`Game Finished! Winner ${winner.winner}`);
+      setModel(true);
       restartGame();
     }
   }, [winner]);
@@ -76,12 +78,17 @@ const Game = () => {
 
   return (
     <div className='game'>
+      <Modal
+        openModal={openModal}
+        onClose={() => setModel(false)}
+        winner={winner}
+        restartGame={restartGame}
+      />
       <div className='board'>
         <div className='row'>
           <Square val={board[0]} checkSquare={() => checkSquare(0)} />
 
           <Square val={board[1]} checkSquare={() => checkSquare(1)} />
-
           <Square val={board[2]} checkSquare={() => checkSquare(2)} />
         </div>
         <div className='row'>
