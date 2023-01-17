@@ -67,7 +67,7 @@ const Game = () => {
       }
     });
     if (filled) {
-      setWinner({ winner: "No one", state: "No One" });
+      setWinner({ winner: "Game is Tied", state: "No One" });
     }
   };
 

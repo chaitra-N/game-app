@@ -1,6 +1,6 @@
 import React from "react";
 import { FaTimes } from "react-icons/fa";
-import result from "../src/assets/Winneremoji.jpg";
+import result from "../src/assets/winnerEmoji.jpg";
 const Modal = ({ winner, openModal, onClose }) => {
   if (!openModal) return null;
   return (
